@@ -39,6 +39,11 @@ func (c *Config) CreateConfigFile() error {
 		return errors.New("failed to create default module config file, err=" + errCreateFile.Error())
 	}
 
+	filepath = fmt.Sprintf("%s/.version", c.ModName)
+	if errCreateVersionFile := ioutil.WriteFile(filepath, []byte("0"), 0755); errCreateVersionFile != nil {
+		return errors.New("failed to create version module config file, err=" + errCreateVersionFile.Error())
+	}
+
 	return nil
 }
 
