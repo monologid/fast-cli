@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.1
+
+- Add travis-ci and codecov.io integration.
+
 #### v0.4.0
 
 - Add new feature to apply a module, update build feature to read from config file.

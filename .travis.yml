@@ -1,0 +1,27 @@
+language: go
+go:
+  - 1.12.x
+
+env:
+  - GO111MODULE=on
+  - CODECOV_TOKEN="9643d0b7-9d1f-4e90-a2b0-273db26176df"
+
+install: true
+
+notifications:
+  email: false
+
+before_script:
+  - GO_FILES=$(find . -iname '*.go' -type f | grep -v /vendor/)
+  - go mod tidy && go get -v
+  - go get -v honnef.co/go/tools/cmd/megacheck
+  - go get -v github.com/fzipp/gocyclo
+
+script:
+  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - megacheck ./...
+  - gocyclo -over 19 $GO_FILES
+  - make
+  
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
