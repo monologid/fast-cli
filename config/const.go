@@ -70,30 +70,30 @@ var DefaultModuleConfig = `
 # Please replace all necessary field based on its description
 
 mod:
-	
-	# Module name will be generated. Don't change the value
+
+# Module name will be generated. Don't change the value
   name: {{MOD_NAME}}
 
-  # Describe the feature of you module
+# Describe the feature of you module
   description: Module description
 
-  # Replace the value with your MONOLOG account id
+# Replace the value with your MONOLOG account id
   accountId: xxxxx
 
-  # Replace the value with your FAST application secret key
-	secretKey: xxxxx
-	
-	# Replace the value with your intended release version
-	# This will be used for applying module to FAST platform
-	releaseVersion: v1
+# Replace the value with your FAST application secret key
+  secretKey: xxxxx
+
+# Replace the value with your intended release version
+# This will be used for applying module to FAST platform
+  releaseVersion: v1
 
 fast:
-	
-	# (Optional) Uncomment uploadUrl when you want to upload to sandbox environment,
-  # otherwise remove this config key if you want to use the defauklt production upload mod url
-  # uploadUrl: http://sandbox.fast.monolog.id/api/v1/application/module/upload
 
-  # (Optional) Uncomment registerUrl when you want to register your mod into sandbox environment,
-  # otherwise remove this config key if you want to use the defauklt production upload mod url
-  # registerUrl: http://sandbox.fast.monolog.id/api/v1/application/module
+# (Optional) Uncomment uploadUrl when you want to upload to sandbox environment,
+# otherwise remove this config key if you want to use the defauklt production upload mod url
+  uploadUrl: https://fast.monolog.id/api/v1/application/module/upload
+
+# (Optional) Uncomment registerUrl when you want to register your mod into sandbox environment,
+# otherwise remove this config key if you want to use the defauklt production upload mod url
+  registerUrl: https://fast.monolog.id/api/v1/application/module
 `
