@@ -1,7 +1,7 @@
 
 .PHONY: test
 
-default: dep build install
+default: dep test build install
 
 dep:
 	go mod tidy && \

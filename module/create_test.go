@@ -10,7 +10,7 @@ import (
 
 var modname = "test"
 
-func tearDown() {
+func tearDownForCreate() {
 	os.RemoveAll("./" + modname)
 }
 
@@ -26,5 +26,5 @@ func TestCreateShouldReturnSuccess(t *testing.T) {
 	errFolderExist := module.Create(modname)
 	assert.Error(t, errFolderExist)
 
-	tearDown()
+	tearDownForCreate()
 }
