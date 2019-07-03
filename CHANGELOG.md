@@ -1,9 +1,13 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.3.3
+
+- Add new test for package log.
+
 #### v0.3.2
 
-- Add new test for read module config file
+- Add new test for read module config file.
 
 #### v0.3.1
 
