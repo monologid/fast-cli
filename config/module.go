@@ -15,11 +15,12 @@ type Module struct {
 
 // Mod is a schema related to module project
 type Mod struct {
-	Name           string `yaml:"name"`
-	Description    string `yaml:"description"`
-	AccountID      string `yaml:"accountId"`
-	SecretKey      string `yaml:"secretKey"`
-	ReleaseVersion string `yaml:"releaseVersion"`
+	Name           string `yaml:"name" json:"name"`
+	Description    string `yaml:"description" json:"description"`
+	AccountID      string `yaml:"accountId" json:"account_id"`
+	SecretKey      string `yaml:"secretKey" json:"secret_key"`
+	ReleaseVersion string `yaml:"releaseVersion" json:"release_version"`
+	Filename       string `json:"filename"`
 }
 
 // FastConfig is a schema related to fast platform configuration

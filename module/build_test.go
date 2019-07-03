@@ -15,6 +15,7 @@ var modnamebuild = "test-build"
 func tearDownForBuild() {
 	os.RemoveAll("./" + modnamebuild)
 	os.RemoveAll("./releases")
+	os.RemoveAll("./.version")
 }
 
 func TestBuildShouldReturnErrorIfVersionFileNotFound(t *testing.T) {
@@ -41,11 +42,12 @@ func TestBuildShouldReturnErrorIfVersionIsNotANumber(t *testing.T) {
 }
 
 func TestBuildShouldReturnSuccess(t *testing.T) {
+	dir, _ := os.Getwd()
 	modnamebuild = modnamebuild + "-2"
 	_ = module.Create(modnamebuild)
 
-	err := module.Build(modnamebuild)
-	assert.Error(t, err)
+	err := module.Build(dir + "/" + modnamebuild)
+	assert.NoError(t, err)
 
 	tearDownForBuild()
 }

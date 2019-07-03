@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.0
+
+- Add new feature to apply a module, update build feature to read from config file.
+
 #### v0.3.3
 
 - Add new test for package log.

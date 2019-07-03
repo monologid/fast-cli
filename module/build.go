@@ -7,18 +7,16 @@ import (
 	"os"
 	"os/exec"
 	"strconv"
-	"strings"
+
+	"github.com/monologid/fast-cli/config"
 )
 
 // Build is used to build FAST module project
 func Build(path string) error {
-	dir, err := os.Getwd()
+	modconf, err := config.ReadModuleConf(path)
 	if err != nil {
-		return nil
+		return errors.New("read-mod-config " + err.Error())
 	}
-
-	tempName := strings.Split(dir, "/")
-	modname := tempName[len(tempName)-1]
 
 	releaseFolderPath := "releases"
 	versionFilePath := ".version"
@@ -46,7 +44,10 @@ func Build(path string) error {
 
 	version = version + 1
 
-	buildcmd := exec.Command("go", "build", "-buildmode=plugin", "-o", fmt.Sprintf("./%s/%s.v%d.so", releaseFolderPath, modname, version), "main.go")
+	outputfile := fmt.Sprintf("%s/%s.v%d.so", releaseFolderPath, modconf.Mod.Name, version)
+	mainfile := fmt.Sprintf("%s/main.go", path)
+
+	buildcmd := exec.Command("go", "build", "-buildmode=plugin", "-o", outputfile, mainfile)
 	errBuildCmd := buildcmd.Run()
 	if errBuildCmd != nil {
 		return errors.New("go-build " + errBuildCmd.Error())
