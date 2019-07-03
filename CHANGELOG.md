@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.2
+
+- Remove environment variable in travis-ci.
+
 #### v0.4.1
 
 - Add travis-ci and codecov.io integration.

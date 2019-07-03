@@ -2,10 +2,6 @@ language: go
 go:
   - 1.12.x
 
-env:
-  - GO111MODULE=on
-  - CODECOV_TOKEN="9643d0b7-9d1f-4e90-a2b0-273db26176df"
-
 install: true
 
 notifications:
