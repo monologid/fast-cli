@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.5
+
+- Remove fzipp/gocyclo from travis-ci and update test coverage.
+
 #### v0.4.4
 
 - Remove honnef/megacheck from travis-ci.
