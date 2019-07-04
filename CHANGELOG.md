@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.4
+
+- Remove honnef/megacheck from travis-ci.
+
 #### v0.4.3
 
 - Disable GO111MODULE during go get in travis-ci.
