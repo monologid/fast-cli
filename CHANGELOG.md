@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.6
+
+- Add get current date time to util, add badges to readme and move go test into makefile in travis-ci.
+
 #### v0.4.5
 
 - Remove fzipp/gocyclo from travis-ci and update test coverage.

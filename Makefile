@@ -14,4 +14,4 @@ install:
 	go install
 
 test:
-	go test ./... -v -cover
+	go test ./... -cover -coverprofile=coverage.txt -covermode=atomic

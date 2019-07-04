@@ -1,14 +1,16 @@
 package log_test
 
 import (
-	"testing"
 	"errors"
+	"testing"
+
 	"github.com/monologid/fast-cli/log"
+	"github.com/monologid/fast-cli/util"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestGetDateTimeShouldNotReturnEmptyString(t *testing.T) {
-	datetime := log.GetDateTime()
+	datetime := util.GetDateTime()
 
 	assert.NotEqual(t, 0, len(datetime))
 }

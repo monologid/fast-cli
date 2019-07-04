@@ -10,12 +10,9 @@ notifications:
 before_script:
   - GO_FILES=$(find . -iname '*.go' -type f | grep -v /vendor/)
   - go mod tidy && go get -v
-  - export GO111MODULE=off
   - go get -t -v ./...
 
 script:
-  - go test ./... -cover -coverprofile=coverage.txt -covermode=atomic
-  - export GO111MODULE=on
   - make
   
 after_success:
