@@ -1,6 +1,10 @@
 FAST-CLI CHANGE LOG
 -------------------
 
+#### v0.4.3
+
+- Disable GO111MODULE during go get in travis-ci.
+
 #### v0.4.2
 
 - Remove environment variable in travis-ci.

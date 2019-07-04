@@ -10,6 +10,7 @@ notifications:
 before_script:
   - GO_FILES=$(find . -iname '*.go' -type f | grep -v /vendor/)
   - go mod tidy && go get -v
+  - export GO111MODULE=off
   - go get -v honnef.co/go/tools/cmd/megacheck
   - go get -v github.com/fzipp/gocyclo
 
@@ -17,6 +18,7 @@ script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
   - megacheck ./...
   - gocyclo -over 19 $GO_FILES
+  - export GO111MODULE=on
   - make
   
 after_success:
