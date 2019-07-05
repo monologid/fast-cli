@@ -6,6 +6,9 @@ const FastUploadModuleURL = `http://fast.monolog.id/api/v1/application/module/up
 // FastURegisterModuleURL is the default url for registering module to FAST platform
 const FastURegisterModuleURL = `http://fast.monolog.id/api/v1/application/module`
 
+// XFastSecretKeyHeader is the key header for auth
+const XFastSecretKeyHeader = "x-fast-secret-key"
+
 // DefaultMainModuleFile is the default FAST module file
 const DefaultMainModuleFile = `
 package main

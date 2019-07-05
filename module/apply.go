@@ -65,10 +65,10 @@ func UploadMod(url string, path string, mod config.Mod) error {
 	}
 
 	_, errCopyFile := io.Copy(part, file)
+	writer.Close()
 	if errCopyFile != nil {
 		return errors.New("copy-file " + errCopyFile.Error())
 	}
-	defer writer.Close()
 
 	req, errNewRequest := http.NewRequest(http.MethodPost, url, body)
 	if errNewRequest != nil {
@@ -77,7 +77,7 @@ func UploadMod(url string, path string, mod config.Mod) error {
 
 	authKey := fmt.Sprintf("Bearer %s", mod.SecretKey)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
-	req.Header.Set("Authorization", authKey)
+	req.Header.Set(config.XFastSecretKeyHeader, authKey)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -94,7 +94,7 @@ func UploadMod(url string, path string, mod config.Mod) error {
 		return errors.New("parser-resp-for-upload " + err.Error())
 	}
 
-	if strings.ToUpper(status) == "FAILED" {
+	if strings.ToUpper(status) == "ERROR" || strings.ToUpper(status) == "FAILED" {
 		return errors.New("failed to upload module")
 	}
 
@@ -114,8 +114,8 @@ func RegisterMod(url string, path string, mod config.Mod) error {
 	}
 
 	authorizationToken := fmt.Sprintf("Bearer %s", mod.SecretKey)
-	req.Header.Set("Authorization", authorizationToken)
 	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set(config.XFastSecretKeyHeader, authorizationToken)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -132,7 +132,7 @@ func RegisterMod(url string, path string, mod config.Mod) error {
 		return errors.New("parser-resp-for-upload " + err.Error())
 	}
 
-	if strings.ToUpper(status) == "FAILED" {
+	if strings.ToUpper(status) == "ERROR" || strings.ToUpper(status) == "FAILED" {
 		return errors.New("failed to upload module")
 	}
 

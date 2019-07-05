@@ -3,6 +3,10 @@ FAST-CLI CHANGE LOG
 
 #### v0.4.7
 
+- Minor hotfix close file writer before upload.
+
+#### v0.4.7
+
 - Minor hotfix when build should check whether there is a specific path is being used.
 
 #### v0.4.6
