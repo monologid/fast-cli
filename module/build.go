@@ -45,7 +45,10 @@ func Build(path string) error {
 	version = version + 1
 
 	outputfile := fmt.Sprintf("%s/%s.v%d.so", releaseFolderPath, modconf.Mod.Name, version)
-	mainfile := fmt.Sprintf("%s/main.go", path)
+	mainfile := "main.go"
+	if len(path) != 0 {
+		mainfile = fmt.Sprintf("%s/main.go", path)
+	}
 
 	buildcmd := exec.Command("go", "build", "-buildmode=plugin", "-o", outputfile, mainfile)
 	errBuildCmd := buildcmd.Run()
