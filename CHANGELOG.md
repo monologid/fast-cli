@@ -1,7 +1,7 @@
 FAST-CLI CHANGE LOG
 -------------------
 
-#### v0.4.7
+#### v0.4.8
 
 - Minor hotfix close file writer before upload.
 
